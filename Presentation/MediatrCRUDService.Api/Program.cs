@@ -1,3 +1,8 @@
+using MediatrCRUDService.Application;
+using MediatrCRUDService.Persistence;
+using MediatrCRUDService.Mapper;
+using MediatrCRUDService.Application.Exceptions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddApplication();
+builder.Services.AddCustomMapper();
+    
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -16,6 +25,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.ConfigureExceptionHandlingMiddleware();
 app.UseAuthorization();
 
 app.MapControllers();

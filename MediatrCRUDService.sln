@@ -9,15 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E4CAEC67-17D7-4528-ADA7-6EF5C65C344F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrCRUDService.Domain", "Core\MediatrCRUDService.Domain\MediatrCRUDService.Domain.csproj", "{CD11ACD2-BECE-4017-B3C5-91FE9FD0D3EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrCRUDService.Domain", "Core\MediatrCRUDService.Domain\MediatrCRUDService.Domain.csproj", "{CD11ACD2-BECE-4017-B3C5-91FE9FD0D3EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrCRUDService.Application", "Core\MediatrCRUDService.Application\MediatrCRUDService.Application.csproj", "{863CEBAE-35F3-4BD1-AE7A-18AFEE267EBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrCRUDService.Application", "Core\MediatrCRUDService.Application\MediatrCRUDService.Application.csproj", "{863CEBAE-35F3-4BD1-AE7A-18AFEE267EBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrCRUDService.Infrastructure", "Infrastructure\MediatrCRUDService.Infrastructure\MediatrCRUDService.Infrastructure.csproj", "{D37BC87F-6CCF-44EC-98B9-097737845A01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrCRUDService.Infrastructure", "Infrastructure\MediatrCRUDService.Infrastructure\MediatrCRUDService.Infrastructure.csproj", "{D37BC87F-6CCF-44EC-98B9-097737845A01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrCRUDService.Persistence", "Infrastructure\MediatrCRUDService.Persistence\MediatrCRUDService.Persistence.csproj", "{830477CC-4674-4881-B8F5-94566DE5D0A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrCRUDService.Persistence", "Infrastructure\MediatrCRUDService.Persistence\MediatrCRUDService.Persistence.csproj", "{830477CC-4674-4881-B8F5-94566DE5D0A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrCRUDService.Api", "Presentation\MediatrCRUDService.Api\MediatrCRUDService.Api.csproj", "{9F30B2D4-90C8-4CA9-9EA2-372E55BB4321}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatrCRUDService.Api", "Presentation\MediatrCRUDService.Api\MediatrCRUDService.Api.csproj", "{9F30B2D4-90C8-4CA9-9EA2-372E55BB4321}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatrCRUDService.Mapper", "Core\MediatrCRUDService.Mapper\MediatrCRUDService.Mapper.csproj", "{8848DD5E-3B24-4A3A-9590-EFC49D449318}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{9F30B2D4-90C8-4CA9-9EA2-372E55BB4321}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F30B2D4-90C8-4CA9-9EA2-372E55BB4321}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F30B2D4-90C8-4CA9-9EA2-372E55BB4321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8848DD5E-3B24-4A3A-9590-EFC49D449318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8848DD5E-3B24-4A3A-9590-EFC49D449318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8848DD5E-3B24-4A3A-9590-EFC49D449318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8848DD5E-3B24-4A3A-9590-EFC49D449318}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{D37BC87F-6CCF-44EC-98B9-097737845A01} = {E4CAEC67-17D7-4528-ADA7-6EF5C65C344F}
 		{830477CC-4674-4881-B8F5-94566DE5D0A8} = {E4CAEC67-17D7-4528-ADA7-6EF5C65C344F}
 		{9F30B2D4-90C8-4CA9-9EA2-372E55BB4321} = {94730BC0-3232-465D-8EA3-145A9A694549}
+		{8848DD5E-3B24-4A3A-9590-EFC49D449318} = {7DADCCE6-462C-4B77-9A94-D716F0DF5CEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E72D7E4-2B9E-4181-882B-711B46CB69CD}
