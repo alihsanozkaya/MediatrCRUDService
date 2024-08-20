@@ -81,8 +81,6 @@ namespace MediatrCRUDService.Persistence.Repositories
                 queryable = include(queryable);
             }
 
-            //queryable.Where(predicate);
-
             return await queryable.FirstOrDefaultAsync(predicate);
         }
     }

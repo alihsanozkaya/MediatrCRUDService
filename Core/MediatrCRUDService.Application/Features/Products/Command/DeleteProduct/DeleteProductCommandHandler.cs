@@ -16,15 +16,15 @@ namespace MediatrCRUDService.Application.Features.Products.Command.DeleteProduct
         {
             _unitOfWork = unitOfWork;
         }
+
         public async Task<Unit> Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken)
         {
             var product = await _unitOfWork.GetReadRepository<Product>().GetAsync(x => x.Id == request.Id);
 
             if (product == null)
             {
-                throw new Exception("Product not found");
+                throw new Exception("Ürün bulunamadı.");
             }
-
             await _unitOfWork.GetWriteRepository<Product>().DeleteAsync(product);
             await _unitOfWork.SaveAsync();
 

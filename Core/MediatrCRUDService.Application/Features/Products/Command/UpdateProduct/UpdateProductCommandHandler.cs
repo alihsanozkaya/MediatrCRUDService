@@ -13,16 +13,19 @@ namespace MediatrCRUDService.Application.Features.Products.Command.UpdateProduct
     public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest, Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
-        public UpdateProductCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public UpdateProductCommandHandler(IUnitOfWork unitOfWork)
         {
-            _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
         public async Task<Unit> Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
         {
             var product = await _unitOfWork.GetReadRepository<Product>().GetAsync(x => x.Id == request.Id);
-            var map = _mapper.Map<Product, UpdateProductCommandRequest>(request);
+            
+            if (product == null)
+            {
+                throw new Exception("Ürün bulunamadı.");
+            }
+
             var productCategories = await _unitOfWork.GetReadRepository<ProductCategory>()
                 .GetAllAsync(x => x.ProductId == product.Id);
 
@@ -33,6 +36,10 @@ namespace MediatrCRUDService.Application.Features.Products.Command.UpdateProduct
                 await _unitOfWork.GetWriteRepository<ProductCategory>()
                     .AddAsync(new() { CategoryId = categoryId, ProductId = product.Id });
             }
+            product.Title = request.Title;
+            product.Description = request.Description;
+            product.Price = request.Price;
+            product.BrandId = request.BrandId;
             await _unitOfWork.GetWriteRepository<Product>().UpdateAsync(product);
             await _unitOfWork.SaveAsync();
 

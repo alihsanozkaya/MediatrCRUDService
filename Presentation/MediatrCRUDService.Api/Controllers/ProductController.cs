@@ -29,14 +29,14 @@ namespace MediatrCRUDService.Api.Controllers
         public async Task<IActionResult> CreateProduct(CreateProductCommandRequest request)
         {
             await _mediator.Send(request);
-            return Ok();
+            return Ok(request);
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateProduct(UpdateProductCommandRequest request)
         {
             await _mediator.Send(request);
-            return Ok();
+            return Ok(request);
         }
 
         [HttpDelete]
