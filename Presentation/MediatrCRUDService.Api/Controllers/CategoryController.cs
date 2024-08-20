@@ -3,6 +3,7 @@ using MediatrCRUDService.Application.Features.Categories.Command.CreateCategory;
 using MediatrCRUDService.Application.Features.Categories.Command.DeleteCategory;
 using MediatrCRUDService.Application.Features.Categories.Command.UpdateCategory;
 using MediatrCRUDService.Application.Features.Categories.Queries.GetAllCategories;
+using MediatrCRUDService.Application.Features.Categories.Queries.GetByCategoryId;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,13 @@ namespace MediatrCRUDService.Api.Controllers
         public async Task<IActionResult> GetAllCategories()
         {
             var response = await _mediator.Send(new GetAllCategoriesQueryRequest());
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByCategoryId(int id)
+        {
+            var response = await _mediator.Send(new GetByCategoryIdQueryRequest { Id = id });
             return Ok(response);
         }
 

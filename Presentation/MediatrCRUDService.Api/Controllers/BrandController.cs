@@ -3,6 +3,7 @@ using MediatrCRUDService.Application.Features.Brands.Command.CreateBrand;
 using MediatrCRUDService.Application.Features.Brands.Command.DeleteBrand;
 using MediatrCRUDService.Application.Features.Brands.Command.UpdateBrand;
 using MediatrCRUDService.Application.Features.Brands.Queries.GetAllBrands;
+using MediatrCRUDService.Application.Features.Brands.Queries.GetByBrandId;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,13 @@ namespace MediatrCRUDService.Api.Controllers
         public async Task<IActionResult> GetAllBrands()
         {
             var response = await _mediator.Send(new GetAllBrandsQueryRequest());
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByBrandId(int id)
+        {
+            var response = await _mediator.Send(new GetByBrandIdQueryRequest { Id = id });
             return Ok(response);
         }
 

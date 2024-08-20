@@ -22,9 +22,9 @@ namespace MediatrCRUDService.Application.Features.Categories.Queries.GetAllCateg
         public async Task<IList<GetAllCategoriesQueryResponse>> Handle(GetAllCategoriesQueryRequest request, CancellationToken cancellationToken)
         {
             var categories = await _unitOfWork.GetReadRepository<Category>().GetAllAsync();
-            var map = _mapper.Map<GetAllCategoriesQueryResponse, Category>(categories);
+            var responses = _mapper.Map<GetAllCategoriesQueryResponse, Category>(categories);
 
-            return map;
+            return responses;
         }
     }
 }

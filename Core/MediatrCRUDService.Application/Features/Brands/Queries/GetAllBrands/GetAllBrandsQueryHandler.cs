@@ -23,9 +23,9 @@ namespace MediatrCRUDService.Application.Features.Brands.Queries.GetAllBrands
         public async Task<IList<GetAllBrandsQueryResponse>> Handle(GetAllBrandsQueryRequest request, CancellationToken cancellationToken)
         {
             var brands = await _unitOfWork.GetReadRepository<Brand>().GetAllAsync();
-            var map = _mapper.Map<GetAllBrandsQueryResponse, Brand>(brands);
+            var responses = _mapper.Map<GetAllBrandsQueryResponse, Brand>(brands);
 
-            return map;
+            return responses;
         }
     }
 }

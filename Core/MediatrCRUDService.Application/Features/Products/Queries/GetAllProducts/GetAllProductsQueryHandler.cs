@@ -25,9 +25,9 @@ namespace MediatrCRUDService.Application.Features.Products.Queries.GetAllProduct
         {
             var products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync(include: x => x.Include(b => b.Brand));
             _mapper.Map<BrandDto, Brand>(new Brand());
-            var map = _mapper.Map<GetAllProductsQueryResponse, Product>(products);
+            var responses = _mapper.Map<GetAllProductsQueryResponse, Product>(products);
 
-            return map;
+            return responses;
         }
     }
 }

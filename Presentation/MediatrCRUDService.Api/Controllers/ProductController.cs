@@ -3,6 +3,7 @@ using MediatrCRUDService.Application.Features.Products.Command.CreateProduct;
 using MediatrCRUDService.Application.Features.Products.Command.DeleteProduct;
 using MediatrCRUDService.Application.Features.Products.Command.UpdateProduct;
 using MediatrCRUDService.Application.Features.Products.Queries.GetAllProducts;
+using MediatrCRUDService.Application.Features.Products.Queries.GetByProductId;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,13 @@ namespace MediatrCRUDService.Api.Controllers
         public async Task<IActionResult> GetAllProducts()
         {
             var response = await _mediator.Send(new GetAllProductsQueryRequest());
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByProductId(int id)
+        {
+            var response = await _mediator.Send(new GetByProductIdQueryRequest { Id = id });
             return Ok(response);
         }
 
